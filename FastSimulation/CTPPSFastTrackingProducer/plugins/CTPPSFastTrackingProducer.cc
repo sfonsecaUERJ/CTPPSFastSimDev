@@ -307,7 +307,7 @@ void CTPPSFastTrackingProducer::LorentzBoost(LorentzVector& p_out, const string&
     TMatrixD tmpboost(4,4);
     double alpha_ = 0.;
     double phi_  = fCrossingAngle*microrad;
-    //if (p_out.pz()<0) phi_*=-1;
+    if (p_out.pz()<0) phi_*=-1;
     tmpboost(0,0) = 1./cos(phi_);
     tmpboost(0,1) = - cos(alpha_)*sin(phi_);
     tmpboost(0,2) = - tan(phi_)*sin(phi_);
