@@ -372,12 +372,12 @@ HepMC::GenEvent * CTPPSHector::addPartToHepMC( HepMC::GenEvent * evt ){
                 if ( !((*m_isStoppedctpps.find(line)).second)) {
                     if( (*m_direct.find( line )).second >0 ) {
                         ddd = m_f_ctpps_f;
-                        fi_    = -std::atan2(ty,-tx); // tx, ty never == 0?
+                        fi_    = std::atan2(tx,ty); // tx, ty never == 0?
                     }
                     else if((*m_direct.find( line )).second <0 ) {
                         ddd = m_b_ctpps_b;
                         theta= CLHEP::pi-theta;
-                        fi_    = CLHEP::pi-std::atan2(ty,tx); // tx, ty never == 0?
+                        fi_    = std::atan2(tx,ty); // tx, ty never == 0?
                     }
                 } 
                 fi = fi_; 
@@ -400,8 +400,8 @@ HepMC::GenEvent * CTPPSHector::addPartToHepMC( HepMC::GenEvent * evt ){
                     gpart->set_status( 2 );
                     vert->add_particle_in( gpart );
                     double Pmom = sqrt(energy*energy - ProtonMassSQ);
-                    vert->add_particle_out( new HepMC::GenParticle( HepMC::FourVector(-Pmom*std::sin(theta)*std::cos(fi),
-                                    Pmom*std::sin(theta)*std::sin(fi),
+                    vert->add_particle_out( new HepMC::GenParticle( HepMC::FourVector(Pmom*std::sin(theta)*std::sin(fi),
+                                    Pmom*std::sin(theta)*std::cos(fi),
                                     Pmom*std::cos(theta),
                                     energy ),gpart->pdg_id(), 1, gpart->flow() ) );
                     evt->add_vertex( vert );
