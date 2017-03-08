@@ -2,8 +2,8 @@
 
 ```
 cmsrel CMSSW_9_0_0_pre4
-git clone https://github.com/sfonsecaUERJ/CTPPSFastSimDev.git CMSSW_9_0_0_pre3/src
-cd CMSSW_9_0_0_pre3/src
+git clone https://github.com/sfonsecaUERJ/CTPPSFastSimDev.git CMSSW_9_0_0_pre4/src
+cd CMSSW_9_0_0_pre4/src
 cmsenv
 scram b -j8
 ```
