@@ -10,8 +10,9 @@ scram b -j8
 #### Some examples using CMSDriver commands:
 
 ## Particle Gun
+```
 cmsDriver.py SingleProton_RandomtXiGunProducer_cfi.py --mc  --conditions auto:run2_mc --fast -n 100 --eventcontent AODSIM -s GEN,SIM,RECOBEFMIX,DIGI:pdigi_valid,RECO --datatier GEN-SIM-DIGI-RECO --beamspot Realistic25ns13TeV2016Collision --pileup NoPileUp --era Run2_25ns --customise SimTransport/CTPPSHectorProducer/FastSimWithCTPPS_cff.customise --no_exec
- 
+ ```
 
 ## MinBias samples including CTPPS FastSim
 
